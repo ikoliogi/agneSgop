@@ -18,6 +18,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselHolderComponent } from './components/carousel-holder/carousel-holder.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipeModule } from 'ngx-filter-pipe';
+import { BoxComponent } from './components/box/box.component';
+import { BoxesComponent } from './components/boxes/boxes.component';
 
 const routes = [
   {
@@ -39,6 +41,10 @@ const routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'boxes',
+    component: BoxesComponent
   }
 ];
 
@@ -52,7 +58,9 @@ const routes = [
     FooterComponent,
     AboutComponent,
     ProductComponent,
-    CarouselHolderComponent
+    CarouselHolderComponent,
+    BoxComponent,
+    BoxesComponent
   ],
   imports: [
     BrowserModule,

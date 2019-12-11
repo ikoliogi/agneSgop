@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
+
 export class ProductsComponent implements OnInit {
 
   public response = {};
@@ -24,3 +25,5 @@ export class ProductsComponent implements OnInit {
   }
 
 }
+
+// sthn html, *ngIf={ r: main } : tsekarei an uparxei key main sto r

@@ -1,7 +1,20 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 fixed-bottom">
-      Footer
+      <button
+        class="btn btn-light"
+        (click)="ss.decreaseNumber()"
+      >
+        -
+      </button>
+      {{ ss.num }}
+      <button
+        class="btn btn-light"
+        (click)="ss.increaseNumber()"
+        >
+        +
+      </button>
+      <input type="text" class="ml-5" [(ngModel)]="ss.text" placeholder="boxes/write color"><!-- try input type="color" -->
     </div>
   </div>
 </div>

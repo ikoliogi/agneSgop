@@ -18,13 +18,16 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="contact">Contact</a>
       </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="boxes">Boxes</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input 
+      <input
         [(ngModel)]="search"
         class="form-control mr-sm-2" id="my_search" type="search" placeholder="Search" [ngModelOptions]="{standalone: true}">
         <ul id="search_results" class="list-group" [hidden]="search == ''">
-          <li 
+          <li
           class="list-group-item"
           *ngFor="let product of response.products | filterBy: {title: search}"
           >
