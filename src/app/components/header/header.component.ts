@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent implements OnInit {
   public search: string = '';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    public cs: CartService
   ) { }
 
   ngOnInit() {

@@ -1,0 +1,9 @@
+<div class="col-12">
+  <img [src]="cartProduct.prod.photo" alt="">
+  <span class="cart-dropdown-title">{{ cartProduct.prod.title }}</span>
+  <span class="cart-dropdown-price">{{ cartProduct.prod.price }}&euro;</span>
+  <button class="btn btn-primary" (click)="cs.removeFromCart(cartProduct.prod)">-</button>
+  {{ cartProduct.quantity }}
+  <button class="btn btn-primary" (click)="cs.addToCart(cartProduct.prod)">+</button>
+  Price: <span class="cart-dropdown-totalPrice">{{ cartProduct.totalPrice }}&euro;</span>
+</div>

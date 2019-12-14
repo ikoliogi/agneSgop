@@ -20,6 +20,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { BoxComponent } from './components/box/box.component';
 import { BoxesComponent } from './components/boxes/boxes.component';
+import { LoopProductsComponent } from './components/loop-products/loop-products.component';
+import { LoopProductComponent } from './components/loop-product/loop-product.component';
+import { CartDroplistComponent } from './components/cart-droplist/cart-droplist.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 const routes = [
   {
@@ -45,6 +49,10 @@ const routes = [
   {
     path: 'boxes',
     component: BoxesComponent
+  },
+  {
+    path: 'loop-products',
+    component: LoopProductsComponent
   }
 ];
 
@@ -60,7 +68,10 @@ const routes = [
     ProductComponent,
     CarouselHolderComponent,
     BoxComponent,
-    BoxesComponent
+    BoxesComponent,
+    LoopProductsComponent,
+    LoopProductComponent,
+    CartDroplistComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +84,8 @@ const routes = [
     }),
     CarouselModule,
     BrowserAnimationsModule,
-    FilterPipeModule
+    FilterPipeModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

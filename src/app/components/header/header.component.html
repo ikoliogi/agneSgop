@@ -21,6 +21,9 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="boxes">Boxes</a>
       </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="loop-products">Loop Products</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input
@@ -37,5 +40,13 @@
           </li>
         </ul>
     </form>
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="cart_dropdown" ngbDropdownToggle>View Cart</button>
+      <div ngbDropdownMenu aria-labelledby="cart_dropdown" class="dropdown-menu-right">
+        <li ngbDropdownItem [hidden]="cs.cart.length > 0">Your Cart is Empty!</li>
+        <app-cart-droplist ngbDropdownItem *ngFor="let p of cs.cart" [cartProduct]="p"></app-cart-droplist>
+        <li ngbDropdownItem [hidden]="cs.cart.length == 0" class="cart-totalPrice mt-2">Total Price: {{ cs.cartTotalPrice }}&euro;</li>
+      </div>
+    </div>
   </div>
 </nav>

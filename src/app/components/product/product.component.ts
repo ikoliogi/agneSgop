@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-product',
@@ -9,18 +11,19 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
-  public response = {};
+  public response: Product;
 
   constructor(
     private http: HttpClient,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public cs: CartService
   ) { }
 
   ngOnInit() {
 
     this.activatedRoute.params.subscribe(params => {
-      this.http.get('https://simple-api.develobird.gr/products/'+params.productID)
-        .subscribe(r => {
+      this.http.get('https://simple-api.develobird.gr/products/' + params.productID)
+        .subscribe((r: any ) => {
           this.response = r;
         });
     });

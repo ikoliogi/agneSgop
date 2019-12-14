@@ -1,0 +1,8 @@
+<a [routerLink]="'/products/'+singleProduct._id">
+  <img class="card-img-top" [src]="singleProduct.photo" alt="Card image cap">
+</a>
+<div class="card-body">
+  <h5 class="card-title">{{ singleProduct.title }}</h5>
+  <h5>{{ singleProduct.price }}&euro;</h5>
+  <button class="btn btn-success" (click)="cart.addToCart(singleProduct)">Add to Cart</button>
+</div>

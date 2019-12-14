@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -12,15 +13,16 @@ export class ProductsComponent implements OnInit {
   public response = {};
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    public cart: CartService
   ) { }
 
   ngOnInit() {
 
     this.http.get('https://simple-api.develobird.gr/products')
-      .subscribe(r => {
-        this.response = r;
-      });
+    .subscribe(r => {
+      this.response = r;
+    });
 
   }
 
