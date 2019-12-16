@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-3 mb-5 cart-title">
+            <h3>Your Cart</h3>
+        </div>
+        <div id="empty-cart" class="col-12 pb-5" [hidden]="cs.cart.length > 0">
+            Your Cart is Empty!
+        </div>
+        <app-cart-product
+            class="col-12"
+            *ngFor="let p of cs.cart"
+            [cartProduct]="p"
+        > 
+        </app-cart-product>
+        <div class="col-12 cart-total-price mt-3">
+            Total Price: {{ cs.cartTotalPrice }}&euro;
+        </div>
+    </div>
+</div>

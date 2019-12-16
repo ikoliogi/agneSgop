@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { Product } from '../../interfaces/product';
+import { IProduct } from '../../interfaces/IProduct';
 
 @Component({
   selector: 'app-loop-product',
@@ -9,10 +9,10 @@ import { Product } from '../../interfaces/product';
 })
 export class LoopProductComponent implements OnInit {
 
-  @Input('product') singleProduct: Product;
+  @Input('product') singleProduct: IProduct;
 
   constructor(
-    public cart: CartService
+    public cs: CartService
   ) { }
 
   ngOnInit() {

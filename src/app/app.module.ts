@@ -24,6 +24,8 @@ import { LoopProductsComponent } from './components/loop-products/loop-products.
 import { LoopProductComponent } from './components/loop-product/loop-product.component';
 import { CartDroplistComponent } from './components/cart-droplist/cart-droplist.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { CartComponent } from './components/cart/cart.component';
+import { CartProductComponent } from './components/cart-product/cart-product.component';
 
 const routes = [
   {
@@ -53,6 +55,10 @@ const routes = [
   {
     path: 'loop-products',
     component: LoopProductsComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   }
 ];
 
@@ -71,7 +77,9 @@ const routes = [
     BoxesComponent,
     LoopProductsComponent,
     LoopProductComponent,
-    CartDroplistComponent
+    CartDroplistComponent,
+    CartComponent,
+    CartProductComponent
   ],
   imports: [
     BrowserModule,

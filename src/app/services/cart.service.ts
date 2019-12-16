@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Product} from '../interfaces/product';
+import { IProduct } from '../interfaces/IProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class CartService {
 
   constructor() { }
 
-  public addToCart(p: Product) {
+  public addToCart(p: IProduct) {
 
     const exists = this.cart.find(a => a.prod._id === p._id);
     if (!exists) {
@@ -26,7 +26,7 @@ export class CartService {
     } else {
 
       exists.quantity++;
-      exists.totalPrice = exists.totalPrice + p.price;
+      exists.totalPrice += p.price;
 
     }
 
@@ -34,23 +34,50 @@ export class CartService {
 
   }
 
-  public removeFromCart(p: Product) {
+  public removeFromCart(p: IProduct) {
 
     const cartProduct = this.cart.find(a => a.prod._id === p._id);
+
+    if (!cartProduct) {
+      return; // if product not found
+    }
+
     if (cartProduct.quantity > 1) {
 
       cartProduct.quantity--;
-      cartProduct.totalPrice = cartProduct.totalPrice - p.price;
+      cartProduct.totalPrice -= p.price;
+      this.cartTotalPrice -= p.price;
 
     } else {
 
-      const index = this.cart.indexOf(cartProduct);
-      console.log(index);
-      this.cart.splice(index, 1);
+      return;
+      // this.cartHide(p._id);
 
     }
 
-    this.cartTotalPrice -= p.price;
+  }
+
+  public deleteFromCart(p: IProduct) {
+
+    const cartProduct = this.cart.find(a => a.prod._id === p._id);
+    if (!cartProduct) {
+      return; // if product not found
+    }
+
+    const index = this.cart.indexOf(cartProduct);
+    this.cart.splice(index, 1);
+    this.cartTotalPrice -= cartProduct.totalPrice;
+
+  }
+
+  public cartHide(id: string): boolean {
+
+    const cartProduct = this.cart.find(a => a.prod._id === id);
+    if (cartProduct.quantity == 1) {
+        return false;
+    } else {
+      return true;
+    }
 
   }
 

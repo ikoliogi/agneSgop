@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../services/cart.service';
-import { Product } from '../../interfaces/product';
+import { IProduct } from '../../interfaces/IProduct';
 
 @Component({
   selector: 'app-product',
@@ -11,7 +11,7 @@ import { Product } from '../../interfaces/product';
 })
 export class ProductComponent implements OnInit {
 
-  public response: Product;
+  public response: IProduct;
 
   constructor(
     private http: HttpClient,
